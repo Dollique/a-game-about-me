@@ -9,15 +9,10 @@ class myGame {
         this.ctx = this.canvas.getContext('2d');
 
         this.gameObj = {
-            char: {
-                path: "/res/char/char.png",
-                x: 100,
-                y: 100
-            },
-            item: {
-                path: "/res/char/sample.png",
-                x: 400,
-                y: 200
+            room1: {
+                path: "/res/maps/map.png",
+                x: 0,
+                y: 0
             }
         };
     }
@@ -26,7 +21,7 @@ class myGame {
         console.log('hello from myGame', this);
     }
 
-    drawgameObject(element) {
+    drawgameObject(element) { // will be replaced by Class for Maps
         let x = element.x;
         let y = element.y;
     
@@ -61,9 +56,26 @@ class myGame {
     createGameLoop() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
-        this.drawgameObject(this.gameObj.char);
-        this.drawgameObject(this.gameObj.item);
+        this.drawgameObject(this.gameObj.room1);
+        //this.drawgameObject(this.gameObj.char);
+        //this.drawgameObject(this.gameObj.item);
     
+        const char = new GameObject({
+            x: 100,
+            y: 100,
+            src: "/res/char/char.png"
+        });
+
+        const sample = new GameObject({
+            x: 400,
+            y: 200,
+        });
+
+        setTimeout(() => { // TEMPORARY
+            char.sprite.draw(this.ctx);
+            sample.sprite.draw(this.ctx);
+        }, 500);
+        
         // REQUEST A NEW FRAME --> CHECK
         //requestAnimationFrame(this.createGameLoop);
     }
