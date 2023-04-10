@@ -1,0 +1,8 @@
+/* IMPORTS */
+
+/* 1. General */
+@import url("resets.css");
+@import url("vars.css");
+
+/* 2. Game */
+@import url("game.css");
