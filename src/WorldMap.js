@@ -28,8 +28,10 @@ window.worldMaps = {
             char: new Person({
                 x: 100,
                 y: 100,
+                width: 150,
+                height: 300,
                 movingSpeed: 5,
-                src: "/res/char/char.png",
+                src: "/res/char/charset.png",
                 isPlayerControlled: true
             }),
             npc: new Person({
